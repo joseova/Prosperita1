@@ -1,10 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Principal;
 
+import Cocina.Cocina;
 import Gerente.Gerente;
 import Meseros.Menu;
 import java.awt.Color;
@@ -20,8 +16,7 @@ public class Inicio extends javax.swing.JFrame {
      */
     public Inicio() {
         initComponents();
-        this.getContentPane().setBackground(Color.white);
-        
+        this.getContentPane().setBackground(Color.white);        
     }
 
     /**
@@ -68,6 +63,11 @@ public class Inicio extends javax.swing.JFrame {
         CocinaButtom.setBackground(new java.awt.Color(255, 0, 0));
         CocinaButtom.setForeground(new java.awt.Color(255, 255, 255));
         CocinaButtom.setText("Cocina");
+        CocinaButtom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CocinaButtomActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -120,6 +120,13 @@ public class Inicio extends javax.swing.JFrame {
         a.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_GerenteButtomActionPerformed
+
+    private void CocinaButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CocinaButtomActionPerformed
+        // TODO add your handling code here:
+        Cocina a = new Cocina();
+        a.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_CocinaButtomActionPerformed
 
     /**
      * @param args the command line arguments

@@ -615,11 +615,7 @@ public class Menu extends javax.swing.JFrame {
 
     static void confspinner(){
     
-//    new Integer(0), // Dato visualizado al inicio en el spinner 
-//    new Integer(0), // Límite inferior 
-//    new Integer(30), // Límite superior 
-//    new Integer(1) // incremento-decremento 
-    SpinnerNumberModel model1 = new SpinnerNumberModel(); 
+        SpinnerNumberModel model1 = new SpinnerNumberModel(); 
         model1.setMaximum(30);
         model1.setMinimum(0);
         SpinnerNumberModel model2 = new SpinnerNumberModel(); 
@@ -715,17 +711,23 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
         spinner9.setVisible(true);
     }//GEN-LAST:event_Plato9ActionPerformed
-    
+    static int mesa;
     private void PedirButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PedirButtomActionPerformed
         // TODO add your handling code here:
         int dialogResult = JOptionPane.showConfirmDialog(Menu.this, "Confirmar Pedido","Confirmar Pedido",0);
         if (dialogResult == JOptionPane.YES_OPTION) {
-            String dialogResul2 = JOptionPane.showInputDialog(Menu.this, "Digite Numero de Mesa","Pedidos",1);
-            if (dialogResul2 != null) {
+            int Mesa = Integer.parseInt( JOptionPane.showInputDialog(Menu.this, "Digite Numero de Mesa","Pedidos",1));
+            int Mesas = Integer.valueOf(Mesa);
+                if (Mesa <1 || Mesa >20) {                    
+                    JOptionPane.showMessageDialog(Menu.this, "Ingrese un numero de Mesa Valido","",2);
+                }
+                else {
+                mesa = Mesa;
                 Pedidos a = new Pedidos();
                 a.setVisible(true);
                 this.dispose();
-            }               
+                }
+               
         }
         
     }//GEN-LAST:event_PedirButtomActionPerformed
@@ -925,14 +927,14 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel label8;
     private javax.swing.JLabel label9;
     private javax.swing.JButton plato8;
-    private static javax.swing.JSpinner spinner1;
-    private static javax.swing.JSpinner spinner2;
-    private static javax.swing.JSpinner spinner3;
-    private static javax.swing.JSpinner spinner4;
-    private static javax.swing.JSpinner spinner5;
-    private static javax.swing.JSpinner spinner6;
-    private static javax.swing.JSpinner spinner7;
-    private static javax.swing.JSpinner spinner8;
-    private static javax.swing.JSpinner spinner9;
+    public static javax.swing.JSpinner spinner1;
+    public static javax.swing.JSpinner spinner2;
+    public static javax.swing.JSpinner spinner3;
+    public static javax.swing.JSpinner spinner4;
+    public static javax.swing.JSpinner spinner5;
+    public static javax.swing.JSpinner spinner6;
+    public static javax.swing.JSpinner spinner7;
+    public static javax.swing.JSpinner spinner8;
+    public static javax.swing.JSpinner spinner9;
     // End of variables declaration//GEN-END:variables
 }

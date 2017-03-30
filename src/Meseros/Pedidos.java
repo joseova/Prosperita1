@@ -6,6 +6,7 @@
 package Meseros;
 
 import Cocina.Cocina;
+import static Meseros.Menu.mesa;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -24,25 +25,95 @@ public class Pedidos extends javax.swing.JFrame {
      * Creates new form Platos
      */
 
-     
+     static Object [] vector = new Object [3];
+    
      
     public Pedidos() {
             initComponents();
-            ((JPanel)getContentPane()).setOpaque(false);
-            ImageIcon uno = new ImageIcon(this.getClass().getResource("/imagenes/fondo.jpg"));
-            JLabel fondo=new JLabel();
-            fondo.setIcon(uno);
-            getLayeredPane().add(fondo, JLayeredPane.FRAME_CONTENT_LAYER);
-            fondo.setBounds(0,0, uno.getIconHeight(), uno.getIconHeight());
-            DefaultTableModel model = new DefaultTableModel();
-            Table.setModel(model);
-         
+            
+            DefaultTableModel model = (DefaultTableModel) Table.getModel();
+           
+            nodo();
             }
-   
+     
+   public void nodo (){
+      
+   DefaultTableModel model = (DefaultTableModel) Table.getModel();
+   int plato1 = Integer.parseInt( Menu.spinner1.getValue().toString());
+   int plato2 = Integer.parseInt( Menu.spinner2.getValue().toString());
+   int plato3 = Integer.parseInt( Menu.spinner3.getValue().toString());
+   int plato4 = Integer.parseInt( Menu.spinner4.getValue().toString());
+   int plato5 = Integer.parseInt( Menu.spinner5.getValue().toString());
+   int plato6 = Integer.parseInt( Menu.spinner6.getValue().toString());
+   int plato7 = Integer.parseInt( Menu.spinner7.getValue().toString());
+   int plato8 = Integer.parseInt( Menu.spinner8.getValue().toString());
+   int plato9 = Integer.parseInt( Menu.spinner9.getValue().toString());
+   if (plato1 > 0 ) {
+           vector[0] = plato1;
+           vector[1] = "Insalata caprese";
+           vector[2] = mesa;
+           model.addRow(vector);
+           Table.setModel(model);
+       }    
+   if (plato2 > 0) {
+           vector[0] = plato2;
+           vector[1] = "Insalata Macedonia";
+           vector[2] = mesa;
+           model.addRow(vector);
+           Table.setModel(model);
+       }
+   if (plato3 > 0) {
+           vector[0] = plato3;
+           vector[1] = "Insalata Di pollo";
+           vector[2] = mesa;
+           model.addRow(vector);
+           Table.setModel(model);
+       }
+   if (plato4 > 0) {
+           vector[0] = plato4;
+           vector[1] = "Lasagne di carne";
+           vector[2] = mesa;
+           model.addRow(vector);
+           Table.setModel(model);
+       }
+   if (plato5 > 0) {
+           vector[0] = plato5;
+           vector[1] = "Lasagne Petto di pollo";
+           vector[2] = mesa;
+           model.addRow(vector);
+           Table.setModel(model);
+       }
+   if (plato6 > 0) {
+           vector[0] = plato6;
+           vector[1] = "Lasagne Vegetariane";
+           vector[2] = mesa;
+           model.addRow(vector);
+           Table.setModel(model);
+       }
+   if (plato7 > 0) {
+           vector[0] = plato7;
+           vector[1] = "spaghetti bolognese";
+           vector[2] = mesa;
+           model.addRow(vector);
+           Table.setModel(model);
+       }
+   if (plato8 > 0) {
+           vector[0] = plato8;
+           vector[1] = "spaghetti Pesto";
+           vector[2] = mesa;
+           model.addRow(vector);
+           Table.setModel(model);
+       }
+   if (plato9 > 0) {
+           vector[0] = plato9;
+           vector[1] = "spaghetti Carbonara";
+           vector[2] = mesa;
+           model.addRow(vector);
+           Table.setModel(model);
+       }
     
-   
-    
-  
+   }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

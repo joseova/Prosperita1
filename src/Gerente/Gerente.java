@@ -5,6 +5,7 @@
  */
 package Gerente;
 
+import Principal.Inicio;
 import java.awt.Color;
 
 /**
@@ -68,7 +69,7 @@ public class Gerente extends javax.swing.JFrame {
             }
         });
 
-        vtbuttom.setBackground(new java.awt.Color(189, 184, 136));
+        vtbuttom.setBackground(new java.awt.Color(71, 0, 130));
         vtbuttom.setForeground(new java.awt.Color(255, 255, 255));
         vtbuttom.setText("Ventas totales");
         vtbuttom.addActionListener(new java.awt.event.ActionListener() {
@@ -105,6 +106,7 @@ public class Gerente extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setBackground(new java.awt.Color(204, 0, 204));
         jButton1.setText("Menu Principal");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -199,6 +201,9 @@ public class Gerente extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        Inicio a = new Inicio();
+        a.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     
