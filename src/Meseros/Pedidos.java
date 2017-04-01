@@ -5,14 +5,8 @@
  */
 package Meseros;
 
-import Cocina.Cocina;
 import static Meseros.Menu.mesa;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JLayeredPane;
-import javax.swing.JPanel;
 
 
 /**
@@ -30,9 +24,6 @@ public class Pedidos extends javax.swing.JFrame {
      
     public Pedidos() {
             initComponents();
-            
-            DefaultTableModel model = (DefaultTableModel) Table.getModel();
-           
             nodo();
             }
      
@@ -53,63 +44,54 @@ public class Pedidos extends javax.swing.JFrame {
            vector[1] = "Insalata caprese";
            vector[2] = mesa;
            model.addRow(vector);
-           Table.setModel(model);
        }    
    if (plato2 > 0) {
            vector[0] = plato2;
            vector[1] = "Insalata Macedonia";
            vector[2] = mesa;
            model.addRow(vector);
-           Table.setModel(model);
        }
    if (plato3 > 0) {
            vector[0] = plato3;
            vector[1] = "Insalata Di pollo";
            vector[2] = mesa;
            model.addRow(vector);
-           Table.setModel(model);
        }
    if (plato4 > 0) {
            vector[0] = plato4;
            vector[1] = "Lasagne di carne";
            vector[2] = mesa;
            model.addRow(vector);
-           Table.setModel(model);
        }
    if (plato5 > 0) {
            vector[0] = plato5;
            vector[1] = "Lasagne Petto di pollo";
            vector[2] = mesa;
            model.addRow(vector);
-           Table.setModel(model);
        }
    if (plato6 > 0) {
            vector[0] = plato6;
            vector[1] = "Lasagne Vegetariane";
            vector[2] = mesa;
            model.addRow(vector);
-           Table.setModel(model);
        }
    if (plato7 > 0) {
            vector[0] = plato7;
            vector[1] = "spaghetti bolognese";
            vector[2] = mesa;
            model.addRow(vector);
-           Table.setModel(model);
        }
    if (plato8 > 0) {
            vector[0] = plato8;
            vector[1] = "spaghetti Pesto";
            vector[2] = mesa;
            model.addRow(vector);
-           Table.setModel(model);
        }
    if (plato9 > 0) {
            vector[0] = plato9;
            vector[1] = "spaghetti Carbonara";
            vector[2] = mesa;
            model.addRow(vector);
-           Table.setModel(model);
        }
     
    }
@@ -129,6 +111,7 @@ public class Pedidos extends javax.swing.JFrame {
         Table = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         BackButtom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/back-button.png"))); // NOI18N
         BackButtom.addActionListener(new java.awt.event.ActionListener() {
@@ -145,11 +128,11 @@ public class Pedidos extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Plato", "Cantidad", "Mesa"
+                "Cantidad", "Plato", "Mesa"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, true, true
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -157,6 +140,11 @@ public class Pedidos extends javax.swing.JFrame {
             }
         });
         jScrollPane2.setViewportView(Table);
+        if (Table.getColumnModel().getColumnCount() > 0) {
+            Table.getColumnModel().getColumn(0).setResizable(false);
+            Table.getColumnModel().getColumn(1).setResizable(false);
+            Table.getColumnModel().getColumn(2).setResizable(false);
+        }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -164,22 +152,26 @@ public class Pedidos extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BackButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(BackButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 57, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(BackButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(BackButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(54, 54, 54))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
