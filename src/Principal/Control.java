@@ -5,6 +5,8 @@
  */
 package Principal;
 
+import Meseros.Pedidos;
+import Meseros.PlatosFuertes;
 import java.awt.Color;
 
 /**
@@ -12,13 +14,16 @@ import java.awt.Color;
  * @author tepes
  */
 public class Control {
+    
     public void main(String[] arg){
         Inicio a = new Inicio();
         a.setVisible(true);
-        
+        PlatosFuertes s = new PlatosFuertes();    
+        s.Escribira("Intentodefactura.txt");
         try{
             Thread.sleep(5000);
         }catch(Exception e){}
+        
     }
     
 }

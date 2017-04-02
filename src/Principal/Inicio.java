@@ -2,7 +2,7 @@ package Principal;
 
 import Cocina.Cocina;
 import Gerente.Gerente;
-import Meseros.Menu;
+import Meseros.PlatosFuertes;
 import java.awt.Color;
 
 /**
@@ -101,6 +101,7 @@ public class Inicio extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -109,7 +110,7 @@ public class Inicio extends javax.swing.JFrame {
 
     private void MenuButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuButtomActionPerformed
         // TODO add your handling code here:
-        Menu a = new Menu();
+        PlatosFuertes a = new PlatosFuertes();
         a.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_MenuButtomActionPerformed

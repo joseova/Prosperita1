@@ -5,9 +5,10 @@
  */
 package Meseros;
 
-import static Meseros.Menu.mesa;
+import static Meseros.PlatosFuertes.mesa;
+import java.awt.Color;
 import javax.swing.table.DefaultTableModel;
-
+import Meseros.PlatosFuertes;
 
 /**
  *
@@ -25,25 +26,27 @@ public class Pedidos extends javax.swing.JFrame {
     public Pedidos() {
             initComponents();
             nodo();
+            this.getContentPane().setBackground(Color.white);       
             }
      
    public void nodo (){
       
    DefaultTableModel model = (DefaultTableModel) Table.getModel();
-   int plato1 = Integer.parseInt( Menu.spinner1.getValue().toString());
-   int plato2 = Integer.parseInt( Menu.spinner2.getValue().toString());
-   int plato3 = Integer.parseInt( Menu.spinner3.getValue().toString());
-   int plato4 = Integer.parseInt( Menu.spinner4.getValue().toString());
-   int plato5 = Integer.parseInt( Menu.spinner5.getValue().toString());
-   int plato6 = Integer.parseInt( Menu.spinner6.getValue().toString());
-   int plato7 = Integer.parseInt( Menu.spinner7.getValue().toString());
-   int plato8 = Integer.parseInt( Menu.spinner8.getValue().toString());
-   int plato9 = Integer.parseInt( Menu.spinner9.getValue().toString());
+   int plato1 = Integer.parseInt( PlatosFuertes.spinner1.getValue().toString());
+   int plato2 = Integer.parseInt( PlatosFuertes.spinner2.getValue().toString());
+   int plato3 = Integer.parseInt( PlatosFuertes.spinner3.getValue().toString());
+   int plato4 = Integer.parseInt( PlatosFuertes.spinner4.getValue().toString());
+   int plato5 = Integer.parseInt( PlatosFuertes.spinner5.getValue().toString());
+   int plato6 = Integer.parseInt( PlatosFuertes.spinner6.getValue().toString());
+   int plato7 = Integer.parseInt( PlatosFuertes.spinner7.getValue().toString());
+   int plato8 = Integer.parseInt( PlatosFuertes.spinner8.getValue().toString());
+   int plato9 = Integer.parseInt( PlatosFuertes.spinner9.getValue().toString());
    if (plato1 > 0 ) {
            vector[0] = plato1;
            vector[1] = "Insalata caprese";
            vector[2] = mesa;
            model.addRow(vector);
+           
        }    
    if (plato2 > 0) {
            vector[0] = plato2;
@@ -111,6 +114,7 @@ public class Pedidos extends javax.swing.JFrame {
         Table = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
         setResizable(false);
 
         BackButtom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/back-button.png"))); // NOI18N
@@ -120,7 +124,7 @@ public class Pedidos extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
         jLabel1.setText("           Pedidos");
 
         Table.setModel(new javax.swing.table.DefaultTableModel(
@@ -155,9 +159,11 @@ public class Pedidos extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(BackButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 57, Short.MAX_VALUE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 11, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -170,7 +176,8 @@ public class Pedidos extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)))
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -179,7 +186,7 @@ public class Pedidos extends javax.swing.JFrame {
 
     private void BackButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButtomActionPerformed
         // TODO add your handling code here:
-        Menu a = new Menu();
+        PlatosFuertes a = new PlatosFuertes();
         a.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BackButtomActionPerformed
