@@ -7,14 +7,11 @@ package Meseros;
 
 import Principal.Inicio;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Panel;
 import static java.lang.Integer.parseInt;
-import javax.swing.DefaultListModel;
-import javax.swing.JScrollPane;
 import javax.swing.JOptionPane; 
 import java.io.*;
-import javax.swing.JLabel;
+import Meseros.Pedidos;
 import javax.swing.SpinnerNumberModel;
 /**
  *
@@ -49,6 +46,8 @@ public class PlatosFuertes extends javax.swing.JFrame {
         label8.setVisible(false);
         label9.setVisible(false);
         this.getContentPane().setBackground(Color.white);       
+            String nombre = "queso";
+        Escribira(nombre);
     }
         
         
@@ -617,7 +616,6 @@ public class PlatosFuertes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     static void confspinner(){
-    
         SpinnerNumberModel model1 = new SpinnerNumberModel(); 
         model1.setMaximum(30);
         model1.setMinimum(0);
@@ -653,13 +651,31 @@ public class PlatosFuertes extends javax.swing.JFrame {
         spinner6.setModel(model6);
         spinner7.setModel(model7);
         spinner8.setModel(model8);
-        spinner9.setModel(model9);
-        
-            
+        spinner9.setModel(model9);           
     }
     
         public static String nomb;        
-    public void Escribira(String nombre){
+
+        public void AnadirPlatos(String plato, int cantidad, Pedido ptr, int mesa){
+        Pedido nuevo = new Pedido(); boolean a = true;
+        nuevo.cantidad = cantidad;
+        nuevo.plato = plato;
+        nuevo.link = null;
+        nuevo.mesa = mesa;
+        
+        if(ptr == null){
+            ptr = nuevo;
+        }else{
+            Pedido q = ptr;
+            while(q.link != null){
+                q = q.link;
+            }
+            q.link = nuevo;
+        }
+        Pedir(nuevo); 
+    }
+        
+        public void Escribira(String nombre){
         File f;
         FileWriter w;
         BufferedWriter wb;
@@ -697,7 +713,8 @@ public class PlatosFuertes extends javax.swing.JFrame {
 
     private void Plato1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Plato1ActionPerformed
         spinner1.setVisible(true);
-        nomb = "Insalata Caprese";
+        int cantidad = (Integer) spinner1.getValue();
+        AñadirP(nomb,cantidad,Pedido.ptr,mesa);
     }//GEN-LAST:event_Plato1ActionPerformed
 
     private void Plato6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Plato6ActionPerformed
@@ -743,10 +760,8 @@ public class PlatosFuertes extends javax.swing.JFrame {
                 mesa = Mesa;
                 Pedidos a = new Pedidos();
                 a.setVisible(true);
-                this.dispose();
-                
-                }
-               
+                this.dispose();                
+                }              
         }
         
     }//GEN-LAST:event_PedirButtomActionPerformed
@@ -759,8 +774,7 @@ public class PlatosFuertes extends javax.swing.JFrame {
             
             int a = parseInt("10000");
             int b = parseInt(spinner1.getValue().toString());
-            label1.setText("El precio es: " +(a * b));
-            
+            label1.setText("El precio es: " +(a * b));     
         }
     }//GEN-LAST:event_spinner1StateChanged
 
@@ -959,4 +973,10 @@ public class PlatosFuertes extends javax.swing.JFrame {
     public static javax.swing.JSpinner spinner8;
     public static javax.swing.JSpinner spinner9;
     // End of variables declaration//GEN-END:variables
+
+    private void Pedir(Pedido nuevo) {
+    }
+
+    private void AñadirP(String nomb, int cantidad, Pedido.Nodo ptr, int mesa) {
+    }
 }
