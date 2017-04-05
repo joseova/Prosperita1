@@ -9,10 +9,13 @@ import Principal.Inicio;
 import java.awt.Color;
 import java.awt.Panel;
 import static java.lang.Integer.parseInt;
-import javax.swing.JOptionPane; 
+import javax.swing.JOptionPane;
 import java.io.*;
-import Meseros.Pedidos;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.SpinnerNumberModel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Elisvan Ruidiaz
@@ -22,10 +25,9 @@ public class PlatosFuertes extends javax.swing.JFrame {
     /**
      * Creates new form menu
      */
-        public PlatosFuertes() {
+    public PlatosFuertes() {
         initComponents();
-        Panel panel = new Panel ();
-     
+        Panel panel = new Panel();
         spinner1.setVisible(false);
         spinner2.setVisible(false);
         spinner3.setVisible(false);
@@ -45,12 +47,15 @@ public class PlatosFuertes extends javax.swing.JFrame {
         label7.setVisible(false);
         label8.setVisible(false);
         label9.setVisible(false);
-        this.getContentPane().setBackground(Color.white);       
-            String nombre = "queso";
+        this.getContentPane().setBackground(Color.white);
+        String nombre = "Factura";
         Escribira(nombre);
     }
-        
-        
+
+    public static String nomb;
+    static Object[] vector = new Object[4s];
+    private final String ruta = System.getProperties().getProperty("user.dir");
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -110,6 +115,9 @@ public class PlatosFuertes extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         Back = new javax.swing.JButton();
         PedirButtom = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TablaPedidos = new javax.swing.JTable();
+        jLabel19 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -579,68 +587,99 @@ public class PlatosFuertes extends javax.swing.JFrame {
             }
         });
 
+        TablaPedidos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Cantidad", "Plato", "Mesa", "Mesero"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(TablaPedidos);
+
+        jLabel19.setFont(new java.awt.Font("Times New Roman", 3, 36)); // NOI18N
+        jLabel19.setText("Pedido");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(Back, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(261, 261, 261)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 794, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(Back, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(261, 261, 261)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(97, 97, 97))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 794, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(PedirButtom)
-                .addGap(27, 27, 27))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Back, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, Short.MAX_VALUE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel19)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 537, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(PedirButtom)
-                .addGap(4, 4, 4))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(PedirButtom)
+                        .addGap(6, 6, 6))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 537, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(32, Short.MAX_VALUE))))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    static void confspinner(){
-        SpinnerNumberModel model1 = new SpinnerNumberModel(); 
+    static void confspinner() {
+        SpinnerNumberModel model1 = new SpinnerNumberModel();
         model1.setMaximum(30);
         model1.setMinimum(0);
-        SpinnerNumberModel model2 = new SpinnerNumberModel(); 
+        SpinnerNumberModel model2 = new SpinnerNumberModel();
         model2.setMaximum(30);
         model2.setMinimum(0);
-        SpinnerNumberModel model3 = new SpinnerNumberModel(); 
+        SpinnerNumberModel model3 = new SpinnerNumberModel();
         model3.setMaximum(30);
         model3.setMinimum(0);
-        SpinnerNumberModel model4 = new SpinnerNumberModel(); 
+        SpinnerNumberModel model4 = new SpinnerNumberModel();
         model4.setMaximum(30);
         model4.setMinimum(0);
-        SpinnerNumberModel model5 = new SpinnerNumberModel(); 
+        SpinnerNumberModel model5 = new SpinnerNumberModel();
         model5.setMaximum(30);
         model5.setMinimum(0);
-        SpinnerNumberModel model6 = new SpinnerNumberModel(); 
+        SpinnerNumberModel model6 = new SpinnerNumberModel();
         model6.setMaximum(30);
         model6.setMinimum(0);
-        SpinnerNumberModel model7 = new SpinnerNumberModel(); 
+        SpinnerNumberModel model7 = new SpinnerNumberModel();
         model7.setMaximum(30);
         model7.setMinimum(0);
-        SpinnerNumberModel model8 = new SpinnerNumberModel(); 
+        SpinnerNumberModel model8 = new SpinnerNumberModel();
         model8.setMaximum(30);
         model8.setMinimum(0);
-        SpinnerNumberModel model9 = new SpinnerNumberModel(); 
+        SpinnerNumberModel model9 = new SpinnerNumberModel();
         model9.setMaximum(30);
         model9.setMinimum(0);
         spinner1.setModel(model1);
@@ -651,52 +690,181 @@ public class PlatosFuertes extends javax.swing.JFrame {
         spinner6.setModel(model6);
         spinner7.setModel(model7);
         spinner8.setModel(model8);
-        spinner9.setModel(model9);           
+        spinner9.setModel(model9);
     }
-    
-        public static String nomb;        
 
-        public void AnadirPlatos(String plato, int cantidad, Pedido ptr, int mesa){
-        Pedido nuevo = new Pedido(); boolean a = true;
-        nuevo.cantidad = cantidad;
-        nuevo.plato = plato;
-        nuevo.link = null;
-        nuevo.mesa = mesa;
-        
-        if(ptr == null){
-            ptr = nuevo;
-        }else{
-            Pedido q = ptr;
-            while(q.link != null){
-                q = q.link;
-            }
-            q.link = nuevo;
-        }
-        Pedir(nuevo); 
-    }
-        
-        public void Escribira(String nombre){
+    public void Escribira(String nombre) {
         File f;
         FileWriter w;
         BufferedWriter wb;
         PrintWriter wr;
-        try{
+        try {
             f = new File(nombre);
             w = new FileWriter(f);
             wb = new BufferedWriter(w);
             wr = new PrintWriter(wb);
-            
+
             wr.write("Intento de factura 1");
             wr.close();
             wb.close();
-        }catch(Exception e){}
-    }    
-    
+        } catch (Exception e) {
+        }
+    }
+
+    public void nodo() {
+        DefaultTableModel model = (DefaultTableModel) TablaPedidos.getModel();
+        int plato1 = Integer.parseInt(PlatosFuertes.spinner1.getValue().toString());
+        int plato2 = Integer.parseInt(PlatosFuertes.spinner2.getValue().toString());
+        int plato3 = Integer.parseInt(PlatosFuertes.spinner3.getValue().toString());
+        int plato4 = Integer.parseInt(PlatosFuertes.spinner4.getValue().toString());
+        int plato5 = Integer.parseInt(PlatosFuertes.spinner5.getValue().toString());
+        int plato6 = Integer.parseInt(PlatosFuertes.spinner6.getValue().toString());
+        int plato7 = Integer.parseInt(PlatosFuertes.spinner7.getValue().toString());
+        int plato = Integer.parseInt(PlatosFuertes.spinner8.getValue().toString());
+        int plato9 = Integer.parseInt(PlatosFuertes.spinner9.getValue().toString());
+        if (plato1 > 0) {
+            vector[0] = plato1;
+            vector[1] = "Insalata caprese";
+            vector[2] = mesa;
+            vector[3] = mesero;
+            model.addRow(vector);
+        }
+        if (plato2 > 0) {
+            vector[0] = plato2;
+            vector[1] = "Insalata Macedonia";
+            vector[2] = mesa;           
+            vector[3] = mesero;
+            model.addRow(vector);
+        }
+        if (plato3 > 0) {
+            vector[0] = plato3;
+            vector[1] = "Insalata Di pollo";
+            vector[2] = mesa;            
+            vector[3] = mesero;
+            model.addRow(vector);
+        }
+        if (plato4 > 0) {
+            vector[0] = plato4;
+            vector[1] = "Lasagne di carne";
+            vector[2] = mesa;
+            vector[3] = mesero;
+            model.addRow(vector);
+        }
+        if (plato5 > 0) {
+            vector[0] = plato5;
+            vector[1] = "Lasagne Petto di pollo";
+            vector[2] = mesa;
+            vector[3] = mesero;
+            model.addRow(vector);
+        }
+        if (plato6 > 0) {
+            vector[0] = plato6;
+            vector[1] = "Lasagne Vegetariane";
+            vector[2] = mesa;
+            vector[3] = mesero;
+            model.addRow(vector);
+        }
+        if (plato7 > 0) {
+            vector[0] = plato7;
+            vector[1] = "spaghetti bolognese";
+            vector[2] = mesa;
+            vector[3] = mesero;            
+            model.addRow(vector);
+        }
+        if (plato > 0) {
+            vector[0] = plato;
+            vector[1] = "spaghetti Pesto";
+            vector[2] = mesa;
+            vector[3] = mesero;
+            model.addRow(vector);
+        }
+        if (plato9 > 0) {
+            vector[0] = plato9;
+            vector[1] = "spaghetti Carbonara";
+            vector[2] = mesa;
+            vector[3] = mesero;
+            model.addRow(vector);
+        }
+
+    }
+
+    void guardarArchivo() {
+        File archivo = null;
+        FileReader fr = null;
+        BufferedReader br = null;
+
+        try {
+            // Apertura del fichero y creacion de BufferedReader para poder
+            // hacer una lectura comoda (disponer del metodo readLine()).
+            archivo = new File(ruta + "//ArchiPedidos.txt");
+            fr = new FileReader(archivo);
+            br = new BufferedReader(fr);
+            // Lectura del fichero
+            String linea;
+            DefaultTableModel model_tabla = new DefaultTableModel();
+            while ((linea = br.readLine()) != null) {
+                System.out.println(linea);
+                model_tabla.addRow(new String[]{linea});
+            }
+            TablaPedidos.setModel(model_tabla);
+            model_tabla.addColumn("Cantidad");
+            model_tabla.addColumn("Platos");
+            model_tabla.addColumn("Mesa");
+            br.close();
+
+        } catch (IOException e) {
+        } finally {
+            try {
+                if (null != fr) {
+                    fr.close();
+                }
+            } catch (IOException e) {
+            }
+        }
+        FileWriter w;
+        BufferedWriter wb;
+        PrintWriter wr;
+        try {
+            w = new FileWriter(archivo, false);
+            wb = new BufferedWriter(w);
+            wr = new PrintWriter(wb);
+            wr.close();
+            wb.close();
+        } catch (IOException e) {
+        }
+    }
+
+    private void TablaArchi() {
+        try {
+
+            String x = (ruta + "//ArchiPedidos.txt");
+            BufferedWriter bfw = new BufferedWriter(new FileWriter(x));
+
+            for (int i = 0; i < TablaPedidos.getRowCount(); i++) //realiza un barrido por filas.
+            {
+                for (int j = 0; j < TablaPedidos.getColumnCount(); j++) //realiza un barrido por columnas.
+                {
+                    bfw.write((TablaPedidos.getValueAt(i, j).toString()));
+                    if (j < TablaPedidos.getColumnCount() - 1) { //agrega separador "," si no es el ultimo elemento de la fila.
+                        bfw.write(",");
+                    }
+                }
+                bfw.newLine(); //inserta nueva linea.
+            }
+
+            bfw.close(); //cierra archivo!
+            System.out.println("El archivo fue salvado correctamente!");
+        } catch (IOException e) {
+            System.out.println("ERROR: Ocurrio un problema al salvar el archivo!" + e.getMessage());
+        }
+    }
+
+
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
         // TODO add your handling code here:
         Inicio a = new Inicio();
         a.setVisible(true);
-        this.dispose();
+        this.hide();
     }//GEN-LAST:event_BackActionPerformed
 
     private void Plato3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Plato3ActionPerformed
@@ -714,7 +882,6 @@ public class PlatosFuertes extends javax.swing.JFrame {
     private void Plato1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Plato1ActionPerformed
         spinner1.setVisible(true);
         int cantidad = (Integer) spinner1.getValue();
-        AñadirP(nomb,cantidad,Pedido.ptr,mesa);
     }//GEN-LAST:event_Plato1ActionPerformed
 
     private void Plato6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Plato6ActionPerformed
@@ -747,34 +914,38 @@ public class PlatosFuertes extends javax.swing.JFrame {
         spinner9.setVisible(true);
     }//GEN-LAST:event_Plato9ActionPerformed
     static int mesa;
+    static int mesero;
     private void PedirButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PedirButtomActionPerformed
         // TODO add your handling code here:
-        int dialogResult = JOptionPane.showConfirmDialog(PlatosFuertes.this, "Confirmar Pedido","Confirmar Pedido",0);
+        int dialogResult = JOptionPane.showConfirmDialog(PlatosFuertes.this, "Confirmar Pedido", "Confirmar Pedido", 0);
         if (dialogResult == JOptionPane.YES_OPTION) {
-            int Mesa = Integer.parseInt(JOptionPane.showInputDialog(PlatosFuertes.this, "Digite Numero de Mesa","Pedidos",1));
-            int Mesas = Integer.valueOf(Mesa);
-                if (Mesa <1 || Mesa >20) {                    
-                    JOptionPane.showMessageDialog(PlatosFuertes.this, "Ingrese un numero de Mesa Valido","",2);
-                }
-                else {
+            int Mesa = Integer.parseInt(JOptionPane.showInputDialog(PlatosFuertes.this, "Digite Numero de Mesa", "Pedidos", 1));
+            int Mesero = Integer.parseInt(JOptionPane.showInputDialog(PlatosFuertes.this, "Digite Numero de Mesero", "Meseros", 1));
+            if ((Mesa < 1 || Mesa > 20) && (Mesero < 1 || Mesero > 5)) {
+                JOptionPane.showMessageDialog(PlatosFuertes.this, "Ingrese un numero de Mesa o Mesero Valido", "", 2);
+            } else {
                 mesa = Mesa;
-                Pedidos a = new Pedidos();
-                a.setVisible(true);
-                this.dispose();                
-                }              
+                mesero = Mesero;
+                nodo();
+            PedirButtom.addActionListener(new ActionListener() {
+                    public void actionPerformed(final ActionEvent d) {
+                        TablaArchi();
+                    }
+                });
+  
+            }
         }
-        
     }//GEN-LAST:event_PedirButtomActionPerformed
 
     private void spinner1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spinner1StateChanged
         if (spinner1.getValue().toString().equals(0)) {
             label1.setVisible(false);
-        }else{
+        } else {
             label1.setVisible(true);
-            
+
             int a = parseInt("10000");
             int b = parseInt(spinner1.getValue().toString());
-            label1.setText("El precio es: " +(a * b));     
+            label1.setText("El precio es: " + (a * b));
         }
     }//GEN-LAST:event_spinner1StateChanged
 
@@ -782,12 +953,12 @@ public class PlatosFuertes extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (spinner2.getValue().toString().equals(0)) {
             label2.setVisible(false);
-        }else{
+        } else {
             label2.setVisible(true);
-            
+
             int a = parseInt("9000");
             int b = parseInt(spinner2.getValue().toString());
-            label2.setText("El precio es: " +(a * b));             
+            label2.setText("El precio es: " + (a * b));
         }
     }//GEN-LAST:event_spinner2StateChanged
 
@@ -795,25 +966,25 @@ public class PlatosFuertes extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (spinner3.getValue().toString().equals(0)) {
             label3.setVisible(false);
-        }else{
+        } else {
             label3.setVisible(true);
-            
+
             int a = parseInt("20000");
             int b = parseInt(spinner3.getValue().toString());
-            label3.setText("El precio es: " +(a * b));             
+            label3.setText("El precio es: " + (a * b));
         }
     }//GEN-LAST:event_spinner3StateChanged
 
     private void spinner4StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spinner4StateChanged
         // TODO add your handling code here:
-          if (spinner4.getValue().toString().equals(0)) {
+        if (spinner4.getValue().toString().equals(0)) {
             label4.setVisible(false);
-        }else{
+        } else {
             label4.setVisible(true);
-            
+
             int a = parseInt("20000");
             int b = parseInt(spinner4.getValue().toString());
-            label4.setText("El precio es: " +(a * b));             
+            label4.setText("El precio es: " + (a * b));
         }
     }//GEN-LAST:event_spinner4StateChanged
 
@@ -821,66 +992,66 @@ public class PlatosFuertes extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (spinner5.getValue().toString().equals(0)) {
             label5.setVisible(false);
-        }else{
+        } else {
             label5.setVisible(true);
-            
+
             int a = parseInt("25000");
             int b = parseInt(spinner5.getValue().toString());
-            label5.setText("El precio es: " +(a * b));             
+            label5.setText("El precio es: " + (a * b));
         }
-        
+
     }//GEN-LAST:event_spinner5StateChanged
 
     private void spinner6StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spinner6StateChanged
         // TODO add your handling code here:
-         if (spinner6.getValue().toString().equals(0)) {
+        if (spinner6.getValue().toString().equals(0)) {
             label6.setVisible(false);
-        }else{
+        } else {
             label6.setVisible(true);
-            
+
             int a = parseInt("30000");
             int b = parseInt(spinner6.getValue().toString());
-            label6.setText("El precio es: " +(a * b));
-         }
+            label6.setText("El precio es: " + (a * b));
+        }
     }//GEN-LAST:event_spinner6StateChanged
 
     private void spinner7StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spinner7StateChanged
         // TODO add your handling code here:
-         if (spinner7.getValue().toString().equals(0)) {
+        if (spinner7.getValue().toString().equals(0)) {
             label7.setVisible(false);
-        }else{
+        } else {
             label7.setVisible(true);
-            
+
             int a = parseInt("16000");
             int b = parseInt(spinner7.getValue().toString());
-            label7.setText("El precio es: " +(a * b));
-         }        
+            label7.setText("El precio es: " + (a * b));
+        }
     }//GEN-LAST:event_spinner7StateChanged
 
     private void spinner8StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spinner8StateChanged
         // TODO add your handling code here:
-         if (spinner8.getValue().toString().equals(0)) {
+        if (spinner8.getValue().toString().equals(0)) {
             label8.setVisible(false);
-        }else{
+        } else {
             label8.setVisible(true);
-            
+
             int a = parseInt("19000");
             int b = parseInt(spinner8.getValue().toString());
-            label8.setText("El precio es: " +(a * b));
-         }
+            label8.setText("El precio es: " + (a * b));
+        }
     }//GEN-LAST:event_spinner8StateChanged
 
     private void spinner9StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spinner9StateChanged
         // TODO add your handling code here:
-         if (spinner9.getValue().toString().equals(0)) {
+        if (spinner9.getValue().toString().equals(0)) {
             label9.setVisible(false);
-        }else{
+        } else {
             label9.setVisible(true);
-            
+
             int a = parseInt("19000");
             int b = parseInt(spinner9.getValue().toString());
-            label9.setText("El precio es: " +(a * b));
-         }
+            label9.setText("El precio es: " + (a * b));
+        }
     }//GEN-LAST:event_spinner9StateChanged
 
     /**
@@ -933,6 +1104,7 @@ public class PlatosFuertes extends javax.swing.JFrame {
     private javax.swing.JButton Plato6;
     private javax.swing.JButton Plato7;
     private javax.swing.JButton Plato9;
+    private javax.swing.JTable TablaPedidos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -943,6 +1115,7 @@ public class PlatosFuertes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -951,6 +1124,7 @@ public class PlatosFuertes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel label1;
     private javax.swing.JLabel label10;
@@ -973,10 +1147,4 @@ public class PlatosFuertes extends javax.swing.JFrame {
     public static javax.swing.JSpinner spinner8;
     public static javax.swing.JSpinner spinner9;
     // End of variables declaration//GEN-END:variables
-
-    private void Pedir(Pedido nuevo) {
-    }
-
-    private void AñadirP(String nomb, int cantidad, Pedido.Nodo ptr, int mesa) {
-    }
 }
