@@ -6,7 +6,6 @@
 package Meseros;
 
 import Principal.Inicio;
-import java.awt.Color;
 import java.awt.Panel;
 import static java.lang.Integer.parseInt;
 import javax.swing.JOptionPane;
@@ -47,13 +46,10 @@ public class PlatosFuertes extends javax.swing.JFrame {
         label7.setVisible(false);
         label8.setVisible(false);
         label9.setVisible(false);
-        this.getContentPane().setBackground(Color.white);
-        String nombre = "Factura";
-        Escribira(nombre);
     }
 
     public static String nomb;
-    static Object[] vector = new Object[4s];
+    static Object[] vector = new Object[4];
     private final String ruta = System.getProperties().getProperty("user.dir");
 
     /**
@@ -118,6 +114,7 @@ public class PlatosFuertes extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaPedidos = new javax.swing.JTable();
         jLabel19 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -608,6 +605,8 @@ public class PlatosFuertes extends javax.swing.JFrame {
         jLabel19.setFont(new java.awt.Font("Times New Roman", 3, 36)); // NOI18N
         jLabel19.setText("Pedido");
 
+        jButton1.setText("Cocina");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -627,6 +626,8 @@ public class PlatosFuertes extends javax.swing.JFrame {
                 .addGap(19, 19, 19))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(33, 33, 33)
                 .addComponent(PedirButtom)
                 .addContainerGap())
         );
@@ -642,12 +643,14 @@ public class PlatosFuertes extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(PedirButtom)
-                        .addGap(6, 6, 6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(PedirButtom)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 537, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(32, Short.MAX_VALUE))))
+                        .addGap(0, 21, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         pack();
@@ -693,7 +696,7 @@ public class PlatosFuertes extends javax.swing.JFrame {
         spinner9.setModel(model9);
     }
 
-    public void Escribira(String nombre) {
+    public void escribira(String nombre) {
         File f;
         FileWriter w;
         BufferedWriter wb;
@@ -703,11 +706,10 @@ public class PlatosFuertes extends javax.swing.JFrame {
             w = new FileWriter(f);
             wb = new BufferedWriter(w);
             wr = new PrintWriter(wb);
-
-            wr.write("Intento de factura 1");
+            tablaArchi();
             wr.close();
             wb.close();
-        } catch (Exception e) {
+        } catch (IOException e) {
         }
     }
 
@@ -732,14 +734,14 @@ public class PlatosFuertes extends javax.swing.JFrame {
         if (plato2 > 0) {
             vector[0] = plato2;
             vector[1] = "Insalata Macedonia";
-            vector[2] = mesa;           
+            vector[2] = mesa;
             vector[3] = mesero;
             model.addRow(vector);
         }
         if (plato3 > 0) {
             vector[0] = plato3;
             vector[1] = "Insalata Di pollo";
-            vector[2] = mesa;            
+            vector[2] = mesa;
             vector[3] = mesero;
             model.addRow(vector);
         }
@@ -768,7 +770,7 @@ public class PlatosFuertes extends javax.swing.JFrame {
             vector[0] = plato7;
             vector[1] = "spaghetti bolognese";
             vector[2] = mesa;
-            vector[3] = mesero;            
+            vector[3] = mesero;
             model.addRow(vector);
         }
         if (plato > 0) {
@@ -785,14 +787,12 @@ public class PlatosFuertes extends javax.swing.JFrame {
             vector[3] = mesero;
             model.addRow(vector);
         }
-
     }
 
     void guardarArchivo() {
         File archivo = null;
         FileReader fr = null;
-        BufferedReader br = null;
-
+        BufferedReader br;
         try {
             // Apertura del fichero y creacion de BufferedReader para poder
             // hacer una lectura comoda (disponer del metodo readLine()).
@@ -807,9 +807,6 @@ public class PlatosFuertes extends javax.swing.JFrame {
                 model_tabla.addRow(new String[]{linea});
             }
             TablaPedidos.setModel(model_tabla);
-            model_tabla.addColumn("Cantidad");
-            model_tabla.addColumn("Platos");
-            model_tabla.addColumn("Mesa");
             br.close();
 
         } catch (IOException e) {
@@ -834,31 +831,29 @@ public class PlatosFuertes extends javax.swing.JFrame {
         }
     }
 
-    private void TablaArchi() {
+    private void tablaArchi() {
+        guardarArchivo();
         try {
-
             String x = (ruta + "//ArchiPedidos.txt");
-            BufferedWriter bfw = new BufferedWriter(new FileWriter(x));
-
-            for (int i = 0; i < TablaPedidos.getRowCount(); i++) //realiza un barrido por filas.
-            {
-                for (int j = 0; j < TablaPedidos.getColumnCount(); j++) //realiza un barrido por columnas.
+            try (BufferedWriter bfw = new BufferedWriter(new FileWriter(x))) {
+                for (int i = 0; i < TablaPedidos.getRowCount(); i++) //realiza un barrido por filas.
                 {
-                    bfw.write((TablaPedidos.getValueAt(i, j).toString()));
-                    if (j < TablaPedidos.getColumnCount() - 1) { //agrega separador "," si no es el ultimo elemento de la fila.
-                        bfw.write(",");
+                    for (int j = 0; j < TablaPedidos.getColumnCount(); j++) //realiza un barrido por columnas.
+                    {
+                        bfw.write((TablaPedidos.getValueAt(i, j).toString()));
+                        if (j < TablaPedidos.getColumnCount() - 1) { //agrega separador "," si no es el ultimo elemento de la fila.
+                            bfw.write(",");
+                        }
                     }
+                    bfw.newLine(); //inserta nueva linea.
                 }
-                bfw.newLine(); //inserta nueva linea.
+                //cierra archivo!
             }
-
-            bfw.close(); //cierra archivo!
             System.out.println("El archivo fue salvado correctamente!");
         } catch (IOException e) {
             System.out.println("ERROR: Ocurrio un problema al salvar el archivo!" + e.getMessage());
         }
     }
-
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
         // TODO add your handling code here:
@@ -870,18 +865,15 @@ public class PlatosFuertes extends javax.swing.JFrame {
     private void Plato3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Plato3ActionPerformed
         // TODO add your handling code here:
         spinner3.setVisible(true);
-        nomb = "insalata di pollo";
     }//GEN-LAST:event_Plato3ActionPerformed
 
     private void Plato2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Plato2ActionPerformed
         // TODO add your handling code here:
         spinner2.setVisible(true);
-        nomb = "Insalata Macedonia";
     }//GEN-LAST:event_Plato2ActionPerformed
 
     private void Plato1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Plato1ActionPerformed
         spinner1.setVisible(true);
-        int cantidad = (Integer) spinner1.getValue();
     }//GEN-LAST:event_Plato1ActionPerformed
 
     private void Plato6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Plato6ActionPerformed
@@ -921,20 +913,56 @@ public class PlatosFuertes extends javax.swing.JFrame {
         if (dialogResult == JOptionPane.YES_OPTION) {
             int Mesa = Integer.parseInt(JOptionPane.showInputDialog(PlatosFuertes.this, "Digite Numero de Mesa", "Pedidos", 1));
             int Mesero = Integer.parseInt(JOptionPane.showInputDialog(PlatosFuertes.this, "Digite Numero de Mesero", "Meseros", 1));
-            if ((Mesa < 1 || Mesa > 20) && (Mesero < 1 || Mesero > 5)) {
-                JOptionPane.showMessageDialog(PlatosFuertes.this, "Ingrese un numero de Mesa o Mesero Valido", "", 2);
+            mesa = Mesa;
+            mesero = Mesero;
+            if (Mesa <= 5 & Mesero != 1) {
+                JOptionPane.showMessageDialog(PlatosFuertes.this, "Ingrese el mesero valido", "", 1);
+            } else {                
+                if (Mesa <= 5 & Mesero == 1) {
+                    nodo();
+                    PedirButtom.addActionListener(new ActionListener() {
+                        public void actionPerformed(final ActionEvent d) {
+                            tablaArchi();
+                        }
+                    });
+                }
+            }
+            if (Mesa > 5 & Mesa <= 10 & Mesero != 2) {
+                JOptionPane.showMessageDialog(PlatosFuertes.this, "Ingrese el mesero valido", "", 1);
             } else {
-                mesa = Mesa;
-                mesero = Mesero;
-                nodo();
-            PedirButtom.addActionListener(new ActionListener() {
-                    public void actionPerformed(final ActionEvent d) {
-                        TablaArchi();
-                    }
-                });
-  
+                if (Mesa > 5 & Mesa <= 10 & Mesero == 2) {
+                    nodo();
+                            tablaArchi();
+                       
+                }
+            }
+            if (Mesa > 10 & Mesa <= 15 & Mesero != 3) {
+                JOptionPane.showMessageDialog(PlatosFuertes.this, "Ingrese el mesero valido", "", 1);
+            } else {               
+                if (Mesa > 10 & Mesa <= 15 & Mesero == 3) {
+                    nodo();
+                    PedirButtom.addActionListener(new ActionListener() {
+                        public void actionPerformed(final ActionEvent d) {
+                            tablaArchi();
+                        }
+                    });
+                }      
+            }
+            if (Mesa > 15 & Mesa <= 20 & Mesero != 4) {
+                JOptionPane.showMessageDialog(PlatosFuertes.this, "Ingrese el mesero valido", "", 1);
+            } else {                
+                if (Mesa > 15 & Mesa <= 20 & Mesero == 4) {
+                    nodo();
+                    PedirButtom.addActionListener(new ActionListener() {
+                        public void actionPerformed(final ActionEvent d) {
+                            tablaArchi();
+                        }
+                    });
+                }
             }
         }
+
+
     }//GEN-LAST:event_PedirButtomActionPerformed
 
     private void spinner1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spinner1StateChanged
@@ -942,7 +970,6 @@ public class PlatosFuertes extends javax.swing.JFrame {
             label1.setVisible(false);
         } else {
             label1.setVisible(true);
-
             int a = parseInt("10000");
             int b = parseInt(spinner1.getValue().toString());
             label1.setText("El precio es: " + (a * b));
@@ -955,7 +982,6 @@ public class PlatosFuertes extends javax.swing.JFrame {
             label2.setVisible(false);
         } else {
             label2.setVisible(true);
-
             int a = parseInt("9000");
             int b = parseInt(spinner2.getValue().toString());
             label2.setText("El precio es: " + (a * b));
@@ -968,7 +994,6 @@ public class PlatosFuertes extends javax.swing.JFrame {
             label3.setVisible(false);
         } else {
             label3.setVisible(true);
-
             int a = parseInt("20000");
             int b = parseInt(spinner3.getValue().toString());
             label3.setText("El precio es: " + (a * b));
@@ -981,7 +1006,6 @@ public class PlatosFuertes extends javax.swing.JFrame {
             label4.setVisible(false);
         } else {
             label4.setVisible(true);
-
             int a = parseInt("20000");
             int b = parseInt(spinner4.getValue().toString());
             label4.setText("El precio es: " + (a * b));
@@ -994,12 +1018,10 @@ public class PlatosFuertes extends javax.swing.JFrame {
             label5.setVisible(false);
         } else {
             label5.setVisible(true);
-
             int a = parseInt("25000");
             int b = parseInt(spinner5.getValue().toString());
             label5.setText("El precio es: " + (a * b));
         }
-
     }//GEN-LAST:event_spinner5StateChanged
 
     private void spinner6StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spinner6StateChanged
@@ -1008,7 +1030,6 @@ public class PlatosFuertes extends javax.swing.JFrame {
             label6.setVisible(false);
         } else {
             label6.setVisible(true);
-
             int a = parseInt("30000");
             int b = parseInt(spinner6.getValue().toString());
             label6.setText("El precio es: " + (a * b));
@@ -1021,7 +1042,6 @@ public class PlatosFuertes extends javax.swing.JFrame {
             label7.setVisible(false);
         } else {
             label7.setVisible(true);
-
             int a = parseInt("16000");
             int b = parseInt(spinner7.getValue().toString());
             label7.setText("El precio es: " + (a * b));
@@ -1034,7 +1054,6 @@ public class PlatosFuertes extends javax.swing.JFrame {
             label8.setVisible(false);
         } else {
             label8.setVisible(true);
-
             int a = parseInt("19000");
             int b = parseInt(spinner8.getValue().toString());
             label8.setText("El precio es: " + (a * b));
@@ -1047,16 +1066,12 @@ public class PlatosFuertes extends javax.swing.JFrame {
             label9.setVisible(false);
         } else {
             label9.setVisible(true);
-
             int a = parseInt("19000");
             int b = parseInt(spinner9.getValue().toString());
             label9.setText("El precio es: " + (a * b));
         }
     }//GEN-LAST:event_spinner9StateChanged
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -1070,20 +1085,9 @@ public class PlatosFuertes extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PlatosFuertes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PlatosFuertes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PlatosFuertes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(PlatosFuertes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -1105,6 +1109,7 @@ public class PlatosFuertes extends javax.swing.JFrame {
     private javax.swing.JButton Plato7;
     private javax.swing.JButton Plato9;
     private javax.swing.JTable TablaPedidos;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
