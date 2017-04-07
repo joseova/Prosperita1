@@ -14,6 +14,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.table.DefaultTableModel;
+import static jdk.nashorn.internal.objects.NativeRegExp.test;
 
 /**
  *
@@ -24,6 +25,10 @@ public class PlatosFuertes extends javax.swing.JFrame {
     /**
      * Creates new form menu
      */
+    public static String nomb;
+    static Object[] vector = new Object[4];
+    private final String ruta = System.getProperties().getProperty("user.dir");
+
     public PlatosFuertes() {
         initComponents();
         Panel panel = new Panel();
@@ -36,7 +41,6 @@ public class PlatosFuertes extends javax.swing.JFrame {
         spinner7.setVisible(false);
         spinner8.setVisible(false);
         spinner9.setVisible(false);
-        confspinner();
         label1.setVisible(false);
         label2.setVisible(false);
         label3.setVisible(false);
@@ -46,11 +50,8 @@ public class PlatosFuertes extends javax.swing.JFrame {
         label7.setVisible(false);
         label8.setVisible(false);
         label9.setVisible(false);
+        confspinner();
     }
-
-    public static String nomb;
-    static Object[] vector = new Object[4];
-    private final String ruta = System.getProperties().getProperty("user.dir");
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -64,23 +65,23 @@ public class PlatosFuertes extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         Panel = new javax.swing.JPanel();
-        Plato1 = new javax.swing.JButton();
-        Plato2 = new javax.swing.JButton();
+        plato1 = new javax.swing.JButton();
+        plato2 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        Plato3 = new javax.swing.JButton();
+        plato3 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        Plato4 = new javax.swing.JButton();
+        plato4 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
-        Plato5 = new javax.swing.JButton();
+        plato5 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
-        Plato6 = new javax.swing.JButton();
+        plato6 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
-        Plato7 = new javax.swing.JButton();
+        plato7 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         plato8 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        Plato9 = new javax.swing.JButton();
+        plato9 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         spinner1 = new javax.swing.JSpinner();
         spinner2 = new javax.swing.JSpinner();
@@ -109,8 +110,8 @@ public class PlatosFuertes extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        Back = new javax.swing.JButton();
-        PedirButtom = new javax.swing.JButton();
+        back = new javax.swing.JButton();
+        pedirButtom = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaPedidos = new javax.swing.JTable();
         jLabel19 = new javax.swing.JLabel();
@@ -124,19 +125,19 @@ public class PlatosFuertes extends javax.swing.JFrame {
         Panel.setBackground(new java.awt.Color(255, 255, 255));
         Panel.setAutoscrolls(true);
 
-        Plato1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ensaladacaprese-iloveimg-resized.jpg"))); // NOI18N
-        Plato1.setText("Insalata caprese");
-        Plato1.addActionListener(new java.awt.event.ActionListener() {
+        plato1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ensaladacaprese-iloveimg-resized.jpg"))); // NOI18N
+        plato1.setText("Insalata caprese");
+        plato1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Plato1ActionPerformed(evt);
+                plato1ActionPerformed(evt);
             }
         });
 
-        Plato2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img_ensalada_de_frutas_para_diabeticos_57467_300_150-iloveimg-resized.jpg"))); // NOI18N
-        Plato2.setText("jButton1");
-        Plato2.addActionListener(new java.awt.event.ActionListener() {
+        plato2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img_ensalada_de_frutas_para_diabeticos_57467_300_150-iloveimg-resized.jpg"))); // NOI18N
+        plato2.setText("jButton1");
+        plato2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Plato2ActionPerformed(evt);
+                plato2ActionPerformed(evt);
             }
         });
 
@@ -148,11 +149,11 @@ public class PlatosFuertes extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(0, 153, 51));
         jLabel7.setText("Insalata Macedonia");
 
-        Plato3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ensaladapollo.jpg"))); // NOI18N
-        Plato3.setText("jButton3");
-        Plato3.addActionListener(new java.awt.event.ActionListener() {
+        plato3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ensaladapollo.jpg"))); // NOI18N
+        plato3.setText("jButton3");
+        plato3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Plato3ActionPerformed(evt);
+                plato3ActionPerformed(evt);
             }
         });
 
@@ -160,43 +161,43 @@ public class PlatosFuertes extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(0, 153, 51));
         jLabel8.setText("insalata di pollo");
 
-        Plato4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/lasañacarne.jpg"))); // NOI18N
-        Plato4.addActionListener(new java.awt.event.ActionListener() {
+        plato4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/lasañacarne.jpg"))); // NOI18N
+        plato4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Plato4ActionPerformed(evt);
+                plato4ActionPerformed(evt);
             }
         });
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         jLabel9.setText("Lasagne di carne");
 
-        Plato5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ensaladapollo.jpg"))); // NOI18N
-        Plato5.setText("jButton6");
-        Plato5.addActionListener(new java.awt.event.ActionListener() {
+        plato5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ensaladapollo.jpg"))); // NOI18N
+        plato5.setText("jButton6");
+        plato5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Plato5ActionPerformed(evt);
+                plato5ActionPerformed(evt);
             }
         });
 
         jLabel10.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         jLabel10.setText("Lasagne Petto di pollo");
 
-        Plato6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/vegetarian-lasagna-300x176-iloveimg-resized.jpg"))); // NOI18N
-        Plato6.setText("jButton7");
-        Plato6.addActionListener(new java.awt.event.ActionListener() {
+        plato6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/vegetarian-lasagna-300x176-iloveimg-resized.jpg"))); // NOI18N
+        plato6.setText("jButton7");
+        plato6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Plato6ActionPerformed(evt);
+                plato6ActionPerformed(evt);
             }
         });
 
         jLabel11.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         jLabel11.setText("lasagne vegetariane");
 
-        Plato7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img-receta-spaghetti-salsa-bolognese-iloveimg-resized.jpg"))); // NOI18N
-        Plato7.setText("jButton8");
-        Plato7.addActionListener(new java.awt.event.ActionListener() {
+        plato7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img-receta-spaghetti-salsa-bolognese-iloveimg-resized.jpg"))); // NOI18N
+        plato7.setText("jButton8");
+        plato7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Plato7ActionPerformed(evt);
+                plato7ActionPerformed(evt);
             }
         });
 
@@ -216,11 +217,11 @@ public class PlatosFuertes extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(153, 153, 0));
         jLabel3.setText("spaghetti  bolognese");
 
-        Plato9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/EspaguetisALaCarbonaraConNata-iloveimg-resized.jpg"))); // NOI18N
-        Plato9.setText("jButton8");
-        Plato9.addActionListener(new java.awt.event.ActionListener() {
+        plato9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/EspaguetisALaCarbonaraConNata-iloveimg-resized.jpg"))); // NOI18N
+        plato9.setText("jButton8");
+        plato9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Plato9ActionPerformed(evt);
+                plato9ActionPerformed(evt);
             }
         });
 
@@ -331,7 +332,7 @@ public class PlatosFuertes extends javax.swing.JFrame {
                             .addGroup(PanelLayout.createSequentialGroup()
                                 .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(PanelLayout.createSequentialGroup()
-                                        .addComponent(Plato2, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(plato2, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(PanelLayout.createSequentialGroup()
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
@@ -345,7 +346,7 @@ public class PlatosFuertes extends javax.swing.JFrame {
                                         .addComponent(label10)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                 .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Plato5, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(plato5, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel13)))
                             .addGroup(PanelLayout.createSequentialGroup()
                                 .addComponent(jLabel7)
@@ -362,7 +363,7 @@ public class PlatosFuertes extends javax.swing.JFrame {
                             .addComponent(label5)))
                     .addGroup(PanelLayout.createSequentialGroup()
                         .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Plato3, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(plato3, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8)
                             .addComponent(jLabel15))
                         .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -383,7 +384,7 @@ public class PlatosFuertes extends javax.swing.JFrame {
                                         .addGap(10, 10, 10)
                                         .addComponent(jLabel14))
                                     .addGroup(PanelLayout.createSequentialGroup()
-                                        .addComponent(Plato6, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(plato6, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(PanelLayout.createSequentialGroup()
                                                 .addGap(29, 29, 29)
@@ -397,7 +398,7 @@ public class PlatosFuertes extends javax.swing.JFrame {
                                 .addGap(134, 134, 134)
                                 .addComponent(spinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(PanelLayout.createSequentialGroup()
-                                .addComponent(Plato1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(plato1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(label1))
                             .addComponent(jLabel6))
@@ -405,7 +406,7 @@ public class PlatosFuertes extends javax.swing.JFrame {
                         .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel12)
                             .addGroup(PanelLayout.createSequentialGroup()
-                                .addComponent(Plato4, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(plato4, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(29, 29, 29)
                                 .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(spinner4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -419,7 +420,7 @@ public class PlatosFuertes extends javax.swing.JFrame {
                                 .addGap(41, 41, 41))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel17)
-                                .addComponent(Plato7, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(plato7, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(plato8, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel16)))
                         .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -440,7 +441,7 @@ public class PlatosFuertes extends javax.swing.JFrame {
                         .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel18)
                             .addGroup(PanelLayout.createSequentialGroup()
-                                .addComponent(Plato9, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(plato9, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(PanelLayout.createSequentialGroup()
                                         .addGap(17, 17, 17)
@@ -461,7 +462,7 @@ public class PlatosFuertes extends javax.swing.JFrame {
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Plato7, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(plato7, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(label4))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel16))
@@ -475,12 +476,12 @@ public class PlatosFuertes extends javax.swing.JFrame {
                                         .addComponent(spinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(14, 14, 14)
                                         .addComponent(label1))
-                                    .addComponent(Plato1)))
+                                    .addComponent(plato1)))
                             .addGroup(PanelLayout.createSequentialGroup()
                                 .addGap(5, 5, 5)
                                 .addComponent(jLabel9)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Plato4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(plato4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(PanelLayout.createSequentialGroup()
                                 .addGap(25, 25, 25)
                                 .addComponent(spinner7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -504,14 +505,14 @@ public class PlatosFuertes extends javax.swing.JFrame {
                                         .addGap(1, 1, 1)
                                         .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(Plato2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(plato2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(label2))
                                             .addGroup(PanelLayout.createSequentialGroup()
                                                 .addGap(15, 15, 15)
                                                 .addComponent(spinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(label10))
-                                    .addComponent(Plato5, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(plato5, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(PanelLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -533,7 +534,7 @@ public class PlatosFuertes extends javax.swing.JFrame {
                         .addGap(22, 22, 22)
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Plato3))
+                        .addComponent(plato3))
                     .addGroup(PanelLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel13)
@@ -554,8 +555,8 @@ public class PlatosFuertes extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(label6))
                                     .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(Plato6)
-                                        .addComponent(Plato9)
+                                        .addComponent(plato6)
+                                        .addComponent(plato9)
                                         .addComponent(label9))))
                             .addGroup(PanelLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -570,17 +571,17 @@ public class PlatosFuertes extends javax.swing.JFrame {
 
         jScrollPane2.setViewportView(Panel);
 
-        Back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/back-button.png"))); // NOI18N
-        Back.addActionListener(new java.awt.event.ActionListener() {
+        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/back-button.png"))); // NOI18N
+        back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BackActionPerformed(evt);
+                backActionPerformed(evt);
             }
         });
 
-        PedirButtom.setText("Pedir");
-        PedirButtom.addActionListener(new java.awt.event.ActionListener() {
+        pedirButtom.setText("Pedir");
+        pedirButtom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PedirButtomActionPerformed(evt);
+                pedirButtomActionPerformed(evt);
             }
         });
 
@@ -601,6 +602,12 @@ public class PlatosFuertes extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(TablaPedidos);
+        if (TablaPedidos.getColumnModel().getColumnCount() > 0) {
+            TablaPedidos.getColumnModel().getColumn(0).setResizable(false);
+            TablaPedidos.getColumnModel().getColumn(1).setResizable(false);
+            TablaPedidos.getColumnModel().getColumn(2).setResizable(false);
+            TablaPedidos.getColumnModel().getColumn(3).setResizable(false);
+        }
 
         jLabel19.setFont(new java.awt.Font("Times New Roman", 3, 36)); // NOI18N
         jLabel19.setText("Pedido");
@@ -612,7 +619,7 @@ public class PlatosFuertes extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(Back, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(back, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(261, 261, 261)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -628,14 +635,14 @@ public class PlatosFuertes extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(33, 33, 33)
-                .addComponent(PedirButtom)
+                .addComponent(pedirButtom)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Back, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(back, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel19)))
@@ -645,7 +652,7 @@ public class PlatosFuertes extends javax.swing.JFrame {
                         .addComponent(jScrollPane1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(PedirButtom)
+                            .addComponent(pedirButtom)
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 537, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -802,6 +809,10 @@ public class PlatosFuertes extends javax.swing.JFrame {
             // Lectura del fichero
             String linea;
             DefaultTableModel model_tabla = new DefaultTableModel();
+            model_tabla.addColumn("Cantidad");
+            model_tabla.addColumn("Plato");
+            model_tabla.addColumn("Mesa");
+            model_tabla.addColumn("Mesero");
             while ((linea = br.readLine()) != null) {
                 System.out.println(linea);
                 model_tabla.addRow(new String[]{linea});
@@ -825,6 +836,9 @@ public class PlatosFuertes extends javax.swing.JFrame {
             w = new FileWriter(archivo, false);
             wb = new BufferedWriter(w);
             wr = new PrintWriter(wb);
+            wr.write(mesa);
+            wr.write(mesero);
+
             wr.close();
             wb.close();
         } catch (IOException e) {
@@ -832,16 +846,22 @@ public class PlatosFuertes extends javax.swing.JFrame {
     }
 
     private void tablaArchi() {
-        guardarArchivo();
+        nodo();
         try {
             String x = (ruta + "//ArchiPedidos.txt");
             try (BufferedWriter bfw = new BufferedWriter(new FileWriter(x))) {
+                System.out.println("Que esta pasando willy");
+                System.out.println(TablaPedidos.getRowCount());
+                System.out.println(TablaPedidos.getColumnCount());                
                 for (int i = 0; i < TablaPedidos.getRowCount(); i++) //realiza un barrido por filas.
                 {
+                    System.out.println(i);
                     for (int j = 0; j < TablaPedidos.getColumnCount(); j++) //realiza un barrido por columnas.
                     {
+                        System.out.println(j);
                         bfw.write((TablaPedidos.getValueAt(i, j).toString()));
                         if (j < TablaPedidos.getColumnCount() - 1) { //agrega separador "," si no es el ultimo elemento de la fila.
+                            System.out.println(j);
                             bfw.write(",");
                         }
                     }
@@ -855,59 +875,59 @@ public class PlatosFuertes extends javax.swing.JFrame {
         }
     }
 
-    private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
+    private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
         // TODO add your handling code here:
         Inicio a = new Inicio();
         a.setVisible(true);
         this.hide();
-    }//GEN-LAST:event_BackActionPerformed
+    }//GEN-LAST:event_backActionPerformed
 
-    private void Plato3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Plato3ActionPerformed
+    private void plato3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plato3ActionPerformed
         // TODO add your handling code here:
         spinner3.setVisible(true);
-    }//GEN-LAST:event_Plato3ActionPerformed
+    }//GEN-LAST:event_plato3ActionPerformed
 
-    private void Plato2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Plato2ActionPerformed
+    private void plato2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plato2ActionPerformed
         // TODO add your handling code here:
         spinner2.setVisible(true);
-    }//GEN-LAST:event_Plato2ActionPerformed
+    }//GEN-LAST:event_plato2ActionPerformed
 
-    private void Plato1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Plato1ActionPerformed
+    private void plato1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plato1ActionPerformed
         spinner1.setVisible(true);
-    }//GEN-LAST:event_Plato1ActionPerformed
+    }//GEN-LAST:event_plato1ActionPerformed
 
-    private void Plato6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Plato6ActionPerformed
+    private void plato6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plato6ActionPerformed
         // TODO add your handling code here:
         spinner6.setVisible(true);
-    }//GEN-LAST:event_Plato6ActionPerformed
+    }//GEN-LAST:event_plato6ActionPerformed
 
-    private void Plato4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Plato4ActionPerformed
+    private void plato4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plato4ActionPerformed
         // TODO add your handling code here:
         spinner4.setVisible(true);
-    }//GEN-LAST:event_Plato4ActionPerformed
+    }//GEN-LAST:event_plato4ActionPerformed
 
-    private void Plato5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Plato5ActionPerformed
+    private void plato5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plato5ActionPerformed
         // TODO add your handling code here:
         spinner5.setVisible(true);
-    }//GEN-LAST:event_Plato5ActionPerformed
+    }//GEN-LAST:event_plato5ActionPerformed
 
-    private void Plato7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Plato7ActionPerformed
+    private void plato7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plato7ActionPerformed
         // TODO add your handling code here:
         spinner7.setVisible(true);
-    }//GEN-LAST:event_Plato7ActionPerformed
+    }//GEN-LAST:event_plato7ActionPerformed
 
     private void plato8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plato8ActionPerformed
         // TODO add your handling code here:
         spinner8.setVisible(true);
     }//GEN-LAST:event_plato8ActionPerformed
 
-    private void Plato9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Plato9ActionPerformed
+    private void plato9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plato9ActionPerformed
         // TODO add your handling code here:
         spinner9.setVisible(true);
-    }//GEN-LAST:event_Plato9ActionPerformed
+    }//GEN-LAST:event_plato9ActionPerformed
     static int mesa;
     static int mesero;
-    private void PedirButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PedirButtomActionPerformed
+    private void pedirButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pedirButtomActionPerformed
         // TODO add your handling code here:
         int dialogResult = JOptionPane.showConfirmDialog(PlatosFuertes.this, "Confirmar Pedido", "Confirmar Pedido", 0);
         if (dialogResult == JOptionPane.YES_OPTION) {
@@ -915,55 +935,10 @@ public class PlatosFuertes extends javax.swing.JFrame {
             int Mesero = Integer.parseInt(JOptionPane.showInputDialog(PlatosFuertes.this, "Digite Numero de Mesero", "Meseros", 1));
             mesa = Mesa;
             mesero = Mesero;
-            if (Mesa <= 5 & Mesero != 1) {
-                JOptionPane.showMessageDialog(PlatosFuertes.this, "Ingrese el mesero valido", "", 1);
-            } else {                
-                if (Mesa <= 5 & Mesero == 1) {
-                    nodo();
-                    PedirButtom.addActionListener(new ActionListener() {
-                        public void actionPerformed(final ActionEvent d) {
-                            tablaArchi();
-                        }
-                    });
-                }
-            }
-            if (Mesa > 5 & Mesa <= 10 & Mesero != 2) {
-                JOptionPane.showMessageDialog(PlatosFuertes.this, "Ingrese el mesero valido", "", 1);
-            } else {
-                if (Mesa > 5 & Mesa <= 10 & Mesero == 2) {
-                    nodo();
-                            tablaArchi();
-                       
-                }
-            }
-            if (Mesa > 10 & Mesa <= 15 & Mesero != 3) {
-                JOptionPane.showMessageDialog(PlatosFuertes.this, "Ingrese el mesero valido", "", 1);
-            } else {               
-                if (Mesa > 10 & Mesa <= 15 & Mesero == 3) {
-                    nodo();
-                    PedirButtom.addActionListener(new ActionListener() {
-                        public void actionPerformed(final ActionEvent d) {
-                            tablaArchi();
-                        }
-                    });
-                }      
-            }
-            if (Mesa > 15 & Mesa <= 20 & Mesero != 4) {
-                JOptionPane.showMessageDialog(PlatosFuertes.this, "Ingrese el mesero valido", "", 1);
-            } else {                
-                if (Mesa > 15 & Mesa <= 20 & Mesero == 4) {
-                    nodo();
-                    PedirButtom.addActionListener(new ActionListener() {
-                        public void actionPerformed(final ActionEvent d) {
-                            tablaArchi();
-                        }
-                    });
-                }
-            }
+            nodo();
+            tablaArchi();
         }
-
-
-    }//GEN-LAST:event_PedirButtomActionPerformed
+    }//GEN-LAST:event_pedirButtomActionPerformed
 
     private void spinner1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spinner1StateChanged
         if (spinner1.getValue().toString().equals(0)) {
@@ -1097,18 +1072,9 @@ public class PlatosFuertes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Back;
     private javax.swing.JPanel Panel;
-    private javax.swing.JButton PedirButtom;
-    private javax.swing.JButton Plato1;
-    private javax.swing.JButton Plato2;
-    private javax.swing.JButton Plato3;
-    private javax.swing.JButton Plato4;
-    private javax.swing.JButton Plato5;
-    private javax.swing.JButton Plato6;
-    private javax.swing.JButton Plato7;
-    private javax.swing.JButton Plato9;
     private javax.swing.JTable TablaPedidos;
+    private javax.swing.JButton back;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1141,7 +1107,16 @@ public class PlatosFuertes extends javax.swing.JFrame {
     private javax.swing.JLabel label7;
     private javax.swing.JLabel label8;
     private javax.swing.JLabel label9;
+    private javax.swing.JButton pedirButtom;
+    private javax.swing.JButton plato1;
+    private javax.swing.JButton plato2;
+    private javax.swing.JButton plato3;
+    private javax.swing.JButton plato4;
+    private javax.swing.JButton plato5;
+    private javax.swing.JButton plato6;
+    private javax.swing.JButton plato7;
     private javax.swing.JButton plato8;
+    private javax.swing.JButton plato9;
     public static javax.swing.JSpinner spinner1;
     public static javax.swing.JSpinner spinner2;
     public static javax.swing.JSpinner spinner3;

@@ -24,7 +24,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <Component id="Back" min="-2" pref="44" max="-2" attributes="0"/>
+              <Component id="back" min="-2" pref="44" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="261" max="-2" attributes="0"/>
               <Component id="jLabel2" min="-2" pref="187" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
@@ -42,7 +42,7 @@
               <EmptySpace max="32767" attributes="0"/>
               <Component id="jButton1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-              <Component id="PedirButtom" min="-2" max="-2" attributes="0"/>
+              <Component id="pedirButtom" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -51,7 +51,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="Back" min="-2" pref="43" max="-2" attributes="0"/>
+                  <Component id="back" min="-2" pref="43" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel2" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
                       <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -63,7 +63,7 @@
                       <Component id="jScrollPane1" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="PedirButtom" min="-2" max="-2" attributes="0"/>
+                          <Component id="pedirButtom" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton1" alignment="0" min="-2" pref="23" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -109,7 +109,7 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
-                                              <Component id="Plato2" min="-2" pref="137" max="-2" attributes="0"/>
+                                              <Component id="plato2" min="-2" pref="137" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Group type="102" attributes="0">
                                                       <EmptySpace pref="29" max="32767" attributes="0"/>
@@ -129,7 +129,7 @@
                                           </Group>
                                       </Group>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="Plato5" min="-2" pref="132" max="-2" attributes="0"/>
+                                          <Component id="plato5" min="-2" pref="132" max="-2" attributes="0"/>
                                           <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -153,7 +153,7 @@
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="Plato3" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
+                                  <Component id="plato3" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
                                   <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -180,7 +180,7 @@
                                               <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" attributes="0">
-                                              <Component id="Plato6" min="-2" pref="156" max="-2" attributes="0"/>
+                                              <Component id="plato6" min="-2" pref="156" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Group type="102" attributes="0">
                                                       <EmptySpace min="29" pref="29" max="-2" attributes="0"/>
@@ -203,7 +203,7 @@
                                       <Component id="spinner1" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="Plato1" min="-2" pref="116" max="-2" attributes="0"/>
+                                      <Component id="plato1" min="-2" pref="116" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="label1" min="-2" max="-2" attributes="0"/>
                                   </Group>
@@ -213,7 +213,7 @@
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" attributes="0">
-                                      <Component id="Plato4" min="-2" pref="154" max="-2" attributes="0"/>
+                                      <Component id="plato4" min="-2" pref="154" max="-2" attributes="0"/>
                                       <EmptySpace min="29" pref="29" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="spinner4" min="-2" max="-2" attributes="0"/>
@@ -233,7 +233,7 @@
                                   </Group>
                                   <Group type="103" alignment="1" groupAlignment="0" attributes="0">
                                       <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
-                                      <Component id="Plato7" min="-2" pref="165" max="-2" attributes="0"/>
+                                      <Component id="plato7" min="-2" pref="165" max="-2" attributes="0"/>
                                       <Component id="plato8" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
                                       <Component id="jLabel16" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
@@ -261,7 +261,7 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" attributes="0">
-                                      <Component id="Plato9" min="-2" pref="113" max="-2" attributes="0"/>
+                                      <Component id="plato9" min="-2" pref="113" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
                                               <EmptySpace min="17" pref="17" max="-2" attributes="0"/>
@@ -292,7 +292,7 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="Plato7" min="-2" pref="79" max="-2" attributes="0"/>
+                                  <Component id="plato7" min="-2" pref="79" max="-2" attributes="0"/>
                                   <Component id="label4" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -309,14 +309,14 @@
                                               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                                               <Component id="label1" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="Plato1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="plato1" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                                       <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="Plato4" min="-2" pref="110" max="-2" attributes="0"/>
+                                      <Component id="plato4" min="-2" pref="110" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
@@ -347,7 +347,7 @@
                                               <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Group type="103" groupAlignment="3" attributes="0">
-                                                      <Component id="Plato2" alignment="3" min="-2" pref="94" max="-2" attributes="0"/>
+                                                      <Component id="plato2" alignment="3" min="-2" pref="94" max="-2" attributes="0"/>
                                                       <Component id="label2" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                                   <Group type="102" attributes="0">
@@ -358,7 +358,7 @@
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                               <Component id="label10" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="Plato5" alignment="0" min="-2" pref="117" max="-2" attributes="0"/>
+                                          <Component id="plato5" alignment="0" min="-2" pref="117" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
@@ -390,7 +390,7 @@
                               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                               <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="Plato3" min="-2" max="-2" attributes="0"/>
+                              <Component id="plato3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
@@ -415,8 +415,8 @@
                                               <Component id="label6" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="Plato6" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="Plato9" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="plato6" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="plato9" alignment="3" min="-2" max="-2" attributes="0"/>
                                               <Component id="label9" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
@@ -440,7 +440,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="Plato1">
+            <Component class="javax.swing.JButton" name="plato1">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/imagenes/ensaladacaprese-iloveimg-resized.jpg"/>
@@ -448,10 +448,10 @@
                 <Property name="text" type="java.lang.String" value="Insalata caprese"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Plato1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="plato1ActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="Plato2">
+            <Component class="javax.swing.JButton" name="plato2">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/imagenes/img_ensalada_de_frutas_para_diabeticos_57467_300_150-iloveimg-resized.jpg"/>
@@ -459,7 +459,7 @@
                 <Property name="text" type="java.lang.String" value="jButton1"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Plato2ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="plato2ActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel5">
@@ -484,7 +484,7 @@
                 <Property name="text" type="java.lang.String" value="Insalata Macedonia"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="Plato3">
+            <Component class="javax.swing.JButton" name="plato3">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/imagenes/ensaladapollo.jpg"/>
@@ -492,7 +492,7 @@
                 <Property name="text" type="java.lang.String" value="jButton3"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Plato3ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="plato3ActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel8">
@@ -506,14 +506,14 @@
                 <Property name="text" type="java.lang.String" value="insalata di pollo"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="Plato4">
+            <Component class="javax.swing.JButton" name="plato4">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/imagenes/lasa&#xf1;acarne.jpg"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Plato4ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="plato4ActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel9">
@@ -524,7 +524,7 @@
                 <Property name="text" type="java.lang.String" value="Lasagne di carne"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="Plato5">
+            <Component class="javax.swing.JButton" name="plato5">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/imagenes/ensaladapollo.jpg"/>
@@ -532,7 +532,7 @@
                 <Property name="text" type="java.lang.String" value="jButton6"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Plato5ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="plato5ActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel10">
@@ -543,7 +543,7 @@
                 <Property name="text" type="java.lang.String" value="Lasagne Petto di pollo"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="Plato6">
+            <Component class="javax.swing.JButton" name="plato6">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/imagenes/vegetarian-lasagna-300x176-iloveimg-resized.jpg"/>
@@ -551,7 +551,7 @@
                 <Property name="text" type="java.lang.String" value="jButton7"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Plato6ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="plato6ActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel11">
@@ -562,7 +562,7 @@
                 <Property name="text" type="java.lang.String" value="lasagne vegetariane"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="Plato7">
+            <Component class="javax.swing.JButton" name="plato7">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/imagenes/img-receta-spaghetti-salsa-bolognese-iloveimg-resized.jpg"/>
@@ -570,7 +570,7 @@
                 <Property name="text" type="java.lang.String" value="jButton8"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Plato7ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="plato7ActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">
@@ -606,7 +606,7 @@
                 <Property name="text" type="java.lang.String" value="spaghetti  bolognese"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="Plato9">
+            <Component class="javax.swing.JButton" name="plato9">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/imagenes/EspaguetisALaCarbonaraConNata-iloveimg-resized.jpg"/>
@@ -614,7 +614,7 @@
                 <Property name="text" type="java.lang.String" value="jButton8"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Plato9ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="plato9ActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel4">
@@ -797,22 +797,22 @@
         </Container>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="Back">
+    <Component class="javax.swing.JButton" name="back">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/imagenes/back-button.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BackActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="PedirButtom">
+    <Component class="javax.swing.JButton" name="pedirButtom">
       <Properties>
         <Property name="text" type="java.lang.String" value="Pedir"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PedirButtomActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pedirButtomActionPerformed"/>
       </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -834,22 +834,22 @@
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
               <TableColumnModel selectionModel="0">
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                   <Title/>
                   <Editor/>
                   <Renderer/>
