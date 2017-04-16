@@ -10,11 +10,8 @@ import java.awt.Panel;
 import static java.lang.Integer.parseInt;
 import javax.swing.JOptionPane;
 import java.io.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.table.DefaultTableModel;
-import static jdk.nashorn.internal.objects.NativeRegExp.test;
 
 /**
  *
@@ -28,6 +25,8 @@ public class PlatosFuertes extends javax.swing.JFrame {
     public static String nomb;
     static Object[] vector = new Object[4];
     private final String ruta = System.getProperties().getProperty("user.dir");
+    static int mesa;
+    static int mesero;
 
     public PlatosFuertes() {
         initComponents();
@@ -51,6 +50,7 @@ public class PlatosFuertes extends javax.swing.JFrame {
         label8.setVisible(false);
         label9.setVisible(false);
         confspinner();
+        nodo();
     }
 
     /**
@@ -110,14 +110,13 @@ public class PlatosFuertes extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        back = new javax.swing.JButton();
         pedirButtom = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaPedidos = new javax.swing.JTable();
         jLabel19 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 3, 48)); // NOI18N
         jLabel2.setText("Antipasti");
@@ -571,13 +570,6 @@ public class PlatosFuertes extends javax.swing.JFrame {
 
         jScrollPane2.setViewportView(Panel);
 
-        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/back-button.png"))); // NOI18N
-        back.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backActionPerformed(evt);
-            }
-        });
-
         pedirButtom.setText("Pedir");
         pedirButtom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -613,14 +605,18 @@ public class PlatosFuertes extends javax.swing.JFrame {
         jLabel19.setText("Pedido");
 
         jButton1.setText("Cocina");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(back, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(261, 261, 261)
+                .addGap(305, 305, 305)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -628,9 +624,9 @@ public class PlatosFuertes extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 794, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
+                .addGap(18, 18, 18))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
@@ -641,19 +637,17 @@ public class PlatosFuertes extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(back, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel19)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel19))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(pedirButtom)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(pedirButtom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 537, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 21, Short.MAX_VALUE)))
@@ -796,72 +790,19 @@ public class PlatosFuertes extends javax.swing.JFrame {
         }
     }
 
-    void guardarArchivo() {
-        File archivo = null;
-        FileReader fr = null;
-        BufferedReader br;
-        try {
-            // Apertura del fichero y creacion de BufferedReader para poder
-            // hacer una lectura comoda (disponer del metodo readLine()).
-            archivo = new File(ruta + "//ArchiPedidos.txt");
-            fr = new FileReader(archivo);
-            br = new BufferedReader(fr);
-            // Lectura del fichero
-            String linea;
-            DefaultTableModel model_tabla = new DefaultTableModel();
-            model_tabla.addColumn("Cantidad");
-            model_tabla.addColumn("Plato");
-            model_tabla.addColumn("Mesa");
-            model_tabla.addColumn("Mesero");
-            while ((linea = br.readLine()) != null) {
-                System.out.println(linea);
-                model_tabla.addRow(new String[]{linea});
-            }
-            TablaPedidos.setModel(model_tabla);
-            br.close();
-
-        } catch (IOException e) {
-        } finally {
-            try {
-                if (null != fr) {
-                    fr.close();
-                }
-            } catch (IOException e) {
-            }
-        }
-        FileWriter w;
-        BufferedWriter wb;
-        PrintWriter wr;
-        try {
-            w = new FileWriter(archivo, false);
-            wb = new BufferedWriter(w);
-            wr = new PrintWriter(wb);
-            wr.write(mesa);
-            wr.write(mesero);
-
-            wr.close();
-            wb.close();
-        } catch (IOException e) {
-        }
-    }
+    
 
     private void tablaArchi() {
         nodo();
         try {
             String x = (ruta + "//ArchiPedidos.txt");
             try (BufferedWriter bfw = new BufferedWriter(new FileWriter(x))) {
-                System.out.println("Que esta pasando willy");
-                System.out.println(TablaPedidos.getRowCount());
-                System.out.println(TablaPedidos.getColumnCount());                
                 for (int i = 0; i < TablaPedidos.getRowCount(); i++) //realiza un barrido por filas.
                 {
-                    System.out.println(i);
                     for (int j = 0; j < TablaPedidos.getColumnCount(); j++) //realiza un barrido por columnas.
                     {
-                        System.out.println(j);
                         bfw.write((TablaPedidos.getValueAt(i, j).toString()));
                         if (j < TablaPedidos.getColumnCount() - 1) { //agrega separador "," si no es el ultimo elemento de la fila.
-                            System.out.println(j);
                             bfw.write(",");
                         }
                     }
@@ -874,13 +815,6 @@ public class PlatosFuertes extends javax.swing.JFrame {
             System.out.println("ERROR: Ocurrio un problema al salvar el archivo!" + e.getMessage());
         }
     }
-
-    private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
-        // TODO add your handling code here:
-        Inicio a = new Inicio();
-        a.setVisible(true);
-        this.hide();
-    }//GEN-LAST:event_backActionPerformed
 
     private void plato3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plato3ActionPerformed
         // TODO add your handling code here:
@@ -925,8 +859,7 @@ public class PlatosFuertes extends javax.swing.JFrame {
         // TODO add your handling code here:
         spinner9.setVisible(true);
     }//GEN-LAST:event_plato9ActionPerformed
-    static int mesa;
-    static int mesero;
+
     private void pedirButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pedirButtomActionPerformed
         // TODO add your handling code here:
         int dialogResult = JOptionPane.showConfirmDialog(PlatosFuertes.this, "Confirmar Pedido", "Confirmar Pedido", 0);
@@ -935,8 +868,8 @@ public class PlatosFuertes extends javax.swing.JFrame {
             int Mesero = Integer.parseInt(JOptionPane.showInputDialog(PlatosFuertes.this, "Digite Numero de Mesero", "Meseros", 1));
             mesa = Mesa;
             mesero = Mesero;
-            nodo();
             tablaArchi();
+
         }
     }//GEN-LAST:event_pedirButtomActionPerformed
 
@@ -1047,6 +980,12 @@ public class PlatosFuertes extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_spinner9StateChanged
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        barraOp a = new barraOp();
+        a.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -1073,8 +1012,7 @@ public class PlatosFuertes extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Panel;
-    private javax.swing.JTable TablaPedidos;
-    private javax.swing.JButton back;
+    public static javax.swing.JTable TablaPedidos;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
